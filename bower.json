@@ -1,0 +1,26 @@
+{
+  "name": "ToDontList",
+  "homepage": "https://github.com/Adzz/todo_challenge",
+  "authors": [
+    "Adam Lancaster <lancaster28@hotmail.com>"
+  ],
+  "description": "A list of things you don't want to do",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.9",
+    "angular-resource": "~1.4.9"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.9",
+    "angular-route": "~1.4.9"
+  }
+}
