@@ -7,9 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "karma start test/karma.conf.js && protractor test/e2e/conf.js",
-    "karma": "karma start test/karma.conf.js",
-    "e2e": "protractor test/e2e/conf.js",
+    "test": "karma start spec/karma.conf.js && protractor spec/e2e/conf.js",
+    "karma": "karma start spec/karma.conf.js",
+    "e2e": "protractor spec/e2e/conf.js",
     "setup": "mkdir js && mkdir js/controllers && mkdir spec && mkdir spec/e2e && touch spec/e2e/conf.js"
   },
   "repository": {
