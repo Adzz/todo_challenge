@@ -3,23 +3,23 @@
   <head>
    <meta charset="utf-8">
     <title>To Don't List</title>
-    <link rel="stylesheet" href="css/styles.min.css">
-    <script src="bower_components/angular/angular.js"></script>
+    <!-- <link rel="stylesheet" href="css/styles.min.css"> -->
+    <script src="bower_components/angular/angular.min.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/controllers/toDontController.js"></script>
   </head>
   <body ng-controller="toDontController as dontCtrl">
-  <h1> TO DO OR NOT TO DO?</h1>
-  <h2>DON'T EVEN</h2>
+  <h1>A LIST OF THINGS YOU WANT TO NOT DO</h1>
+  <h3>(BUT PROBABLY WILL ANYWAY)</h3>
   <form class="form-horizontal">
-    <input type="text" autofocus>
-    <button class="btn">Add to list</button>
+    <input type="text" class="input" ng-model="dontCtrl.task">
+    <button class="btn" ng-click="dontCtrl.addTask()">Add to list</button>
   </form>
-  <ul class="list-group">
-    <li class="list-group-item">
-    </li>
-  </ul>
-
+  <div ng-repeat="task in dontCtrl.dontList">
+    <p class="task">{{task}}</p>
+  </div>
+  <button class="complete">Yay, I didn't do it.</button>
   </body>
 
 
