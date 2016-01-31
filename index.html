@@ -24,7 +24,7 @@
        <button ng-click="editing = !editing" class="edit-btn">Edit</button>
     <span>
       <input type="text" ng-show="editing" ng-change="dontCtrl.updateText($index)" ng-model="dontCtrl.edit" ng-model-options="{updateOn: 'blur'}" class="edit-box">
-      <span><button class="accept-edit-btn" ng-click="dontCtrl.updateText($index)">Change</button>
+      <span><button ng-show="editing" class="accept-edit-btn" ng-click="dontCtrl.updateText($index)">Change</button>
       </span>
     </span>
   </ul>

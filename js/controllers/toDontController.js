@@ -17,6 +17,7 @@ toDontList.controller("toDontController", [function() {
 
   self.updateText = function(index) {
     self.dontList[index] = self.edit;
+    self.edit = "";
   };
 
  // self.editTask = function(taskIndex){
