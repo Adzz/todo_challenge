@@ -14,11 +14,23 @@
   <h3>(BUT PROBABLY WILL ANYWAY)</h3>
   <form class="form-horizontal">
     <input type="text" class="input" ng-model="dontCtrl.task">
-    <button class="btn" ng-click="dontCtrl.addTask()">Add to list</button>
+    <button class="add-task" ng-click="dontCtrl.addTask()">Add to list</button>
   </form>
-  <div ng-repeat="task in dontCtrl.dontList">
+  <ul ng-repeat="task in dontCtrl.dontList">
+    <li>
     <p class="task">{{task}}</p>
-  </div>
+    <span>
+      <button ng-click="dontCtrl.deleteTask($index)" class="delete-btn">Delete</button>
+    </span>
+     <span>
+       <button ng-click="editing = !editing" class="edit-btn">Edit</button>
+    </span>
+    <span>
+      <input type="text" ng-show="editing" ng-change="dontCtrl.updateText($index)" ng-model="dontCtrl.edit" ng-model-options="{updateOn: 'blur'}" class="edit-box">
+
+    </span>
+    </li>
+  </ul>
   <button class="complete">Yay, I didn't do it.</button>
   </body>
 

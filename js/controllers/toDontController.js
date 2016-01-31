@@ -3,18 +3,23 @@ toDontList.controller("toDontController", [function() {
 
   var self = this;
   self.dontList = [];
+  self.editing = false;
 
   self.addTask = function() {
     self.dontList.push(self.task);
   }
 
-  self.deleteTask = function(task) {
-    self.dontList.splice(task, 1);
+  self.deleteTask = function(taskIndex) {
+    self.dontList.splice(taskIndex, 1);
   }
 
-  self.editTask = function(){
-    self.task
-  }
+  self.updateText = function(index) {
+    self.dontList[index] = self.edit;
+  };
+
+ // self.editTask = function(taskIndex){
+   // self.edit.
+ // }
 
 
 }]);

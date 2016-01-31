@@ -1,30 +1,34 @@
+"use strict";
+
+  var IndexPage = require("../pages/index.page.js");
+
 describe("To Don't list", function() {
 
-  var input = element(by.className("input")),
-      btn =  element(by.className("btn")),
-      complete = element(by.className("finished"));
+  var page;
 
-  describe("When A task has been added", function(){
+  beforeEach(function() {
+    page = new IndexPage();
+  });
+
+  describe("When tasks have been added", function(){
 
     beforeEach(function(){
-      browser.get("http://localhost:8080");
-      input.sendKeys("Test");
-      btn.click();
-
+      page.addToDont("test");
     });
 
-
-     it("Adds tasks that you want to not-do onto the list", function(){
-       expect(element(by.className("task")).getText()).toEqual("Test");
-
+     it("Lists tasks that you want to not-do", function(){
+        expect(page.toDontList.count()).toEqual(1);
      });
 
-    it("Deletes tasks when they are complete", function() {
-      complete.click();
-      expect(page).not_to have_content("Test");
+    it("Deletes the correct task when the delete button is clicked", function() {
+      page.addToDont("Test 2");
+      page.deleteTask();
+      expect(page.taskX(0)).toEqual("Test 2");
+      expect(page.toDontList.count()).toEqual(1);
     });
+
 
   });
 
 
- });
+});
