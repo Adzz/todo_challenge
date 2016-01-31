@@ -13,14 +13,19 @@ describe("To Don't list", function() {
       page.addToDont("test");
     });
 
-     it("Lists tasks that you want to not-do", function(){
-        expect(page.taskX(0)).toEqual("test");
-     });
+    it("Lists tasks that you want to not-do", function(){
+      expect(page.taskX(0)).toEqual("test");
+    });
 
-     it("Removes text from the text box after a task is added", function(){
-       page.addToDont("Test 2");
-       expect(page.taskX(1)).toEqual("Test 2");
-     });
+    it("Removes text from the text box after a task is added", function(){
+      page.addToDont("Test 2");
+      expect(page.taskX(1)).toEqual("Test 2");
+    });
+
+    it("Edits items on the list successfully", function(){
+      page.editTask("edited");
+      expect(page.taskX(0)).toEqual("edited");
+    });
 
     it("Deletes the correct task when the delete button is clicked", function() {
       page.addToDont("Test 2");

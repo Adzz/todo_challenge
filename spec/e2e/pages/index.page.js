@@ -3,12 +3,13 @@
 var IndexPage = function(){
 
     this.taskInputBox = element(by.className("input"));
-    this.taskEditBox = element(by.model("edit"));
+    this.taskEditBox = element(by.className("edit-box"));
     this.toDontList =  element.all(by.repeater("task in dontCtrl.dontList"));
     this.addTaskBtn = element(by.className("add-task"));
     this.task = element.all(by.className("task"));
     this.editBtn = element.all(by.className("edit-btn")).get(0);
     this.deleteBtn = element.all(by.className("delete-btn")).get(0);
+    this.acceptEdit = element(by.className("accept-edit-btn"));
 
 };
 
@@ -33,9 +34,10 @@ var IndexPage = function(){
   };
 
 
-  IndexPage.prototype.editTask = function() {
+  IndexPage.prototype.editTask = function(edit) {
     this.editBtn.click();
-    this.taskEditBox.sendkeys("edited");
+    this.taskEditBox.sendKeys(edit);
+    this.acceptEdit.click();
   };
 
 module.exports = IndexPage;
