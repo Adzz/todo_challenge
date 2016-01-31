@@ -1,10 +1,10 @@
-"use strict";
+//"use strict";
 
-function IndexPage(){
+var IndexPage = function(){
 
     this.taskInputBox = element(by.className("input"));
     this.taskEditBox = element(by.model("edit"));
-    this.toDontList =  element.all(by.repeater("task in dontList"));
+    this.toDontList =  element.all(by.repeater("task in dontCtrl.dontList"));
     this.addTaskBtn = element(by.className("add-task"));
     this.editBtn = element.all(by.className("edit-btn")).get(0);
     this.deleteBtn = element.all(by.className("delete-btn")).get(0);
@@ -13,7 +13,7 @@ function IndexPage(){
 
 
   IndexPage.prototype.taskX = function(index){
-    return toDontList.get(index).getText();
+    return this.toDontList.get(index).getText();
   };
 
 
@@ -26,8 +26,8 @@ function IndexPage(){
     this.deleteBtn.click();
   };
 
-  IndexPage.prototype.addToDont = function(toDontTask){
-    this.taskInputBox.sendKeys(this.toDontTask);
+  IndexPage.prototype.addToDont = function(text){
+    this.taskInputBox.sendKeys(text);
     this.addTaskBtn.click();
   };
 
@@ -37,4 +37,4 @@ function IndexPage(){
     this.taskEditBox.sendkeys("edited");
   };
 
-
+module.exports = IndexPage;

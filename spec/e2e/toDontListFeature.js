@@ -1,21 +1,20 @@
-"use strict";
-
-require('./pages/index.page.js');
-
+//"use strict";
 describe("To Don't list", function() {
 
-  var page;
+  var page,
+      indexPage;
 
   describe("When tasks have been added", function(){
 
     beforeEach(function(){
-      page = new IndexPage;
+      indexPage = require('./pages/index.page.js');
+      page = new indexPage;
       page.get();
       page.addToDont("test");
     });
 
      it("Lists tasks that you want to not-do", function(){
-        expect(page.toDontList.count()).toEqual(1);
+        expect(page.taskX(0)).toEqual("test\nDelete Edit");
      });
 
    // it("Deletes the correct task when the delete button is clicked", function() {
