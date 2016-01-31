@@ -6,6 +6,7 @@ var IndexPage = function(){
     this.taskEditBox = element(by.model("edit"));
     this.toDontList =  element.all(by.repeater("task in dontCtrl.dontList"));
     this.addTaskBtn = element(by.className("add-task"));
+    this.task = element.all(by.className("task"));
     this.editBtn = element.all(by.className("edit-btn")).get(0);
     this.deleteBtn = element.all(by.className("delete-btn")).get(0);
 
@@ -13,7 +14,7 @@ var IndexPage = function(){
 
 
   IndexPage.prototype.taskX = function(index){
-    return this.toDontList.get(index).getText();
+    return this.task.get(index).getText();
   };
 
 

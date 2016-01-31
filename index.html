@@ -12,24 +12,19 @@
   <body ng-controller="toDontController as dontCtrl">
   <h1>A LIST OF THINGS YOU WANT TO NOT DO</h1>
   <h3>(BUT PROBABLY WILL ANYWAY)</h3>
-  <form class="form-horizontal">
+  <form class="form-horizontal" name="addForm">
     <input type="text" class="input" ng-model="dontCtrl.task">
     <button class="add-task" ng-click="dontCtrl.addTask()">Add to list</button>
   </form>
   <ul ng-repeat="task in dontCtrl.dontList">
     <li>
     <p class="task">{{task}}</p>
-    <span>
+    </li>
       <button ng-click="dontCtrl.deleteTask($index)" class="delete-btn">Delete</button>
-    </span>
-     <span>
        <button ng-click="editing = !editing" class="edit-btn">Edit</button>
-    </span>
     <span>
       <input type="text" ng-show="editing" ng-change="dontCtrl.updateText($index)" ng-model="dontCtrl.edit" ng-model-options="{updateOn: 'blur'}" class="edit-box">
-
     </span>
-    </li>
   </ul>
   <button class="complete">Yay, I didn't do it.</button>
   </body>

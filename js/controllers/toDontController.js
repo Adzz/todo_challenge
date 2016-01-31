@@ -5,8 +5,10 @@ toDontList.controller("toDontController", [function() {
   self.dontList = [];
   self.editing = false;
 
+
   self.addTask = function() {
     self.dontList.push(self.task);
+    self.task = "";
   }
 
   self.deleteTask = function(taskIndex) {
